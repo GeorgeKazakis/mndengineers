@@ -1,0 +1,45 @@
+name: Update work map
+
+# Nightly refresh of assets/data/projects.json from the Google My Maps map.
+# Commits only when the data actually changed.
+on:
+  schedule:
+    - cron: "17 2 * * *"   # 02:17 UTC (04:17/05:17 Greek time)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-map
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Rebuild map data from Google My Maps
+        run: python3 tools/kml_to_json.py
+
+      - name: Commit and push if changed
+        run: |
+          if git diff --quiet -- assets/data/projects.json; then
+            echo "Map data unchanged."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898274+github-actions[bot]@users.noreply.github.com"
+          git add assets/data/projects.json
+          git commit -m "Update work map data from Google My Maps"
+          git push origin HEAD:main
+          # Keep gh-pages in step while GitHub Pages still publishes from it.
+          # Remove this once Pages is switched to main and gh-pages is deleted.
+          if git ls-remote --exit-code --heads origin gh-pages >/dev/null; then
+            git push origin HEAD:gh-pages || echo "::warning::gh-pages could not be fast-forwarded"
+          fi

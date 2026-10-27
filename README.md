@@ -22,7 +22,10 @@ Any static host works: GitHub Pages (Settings → Pages → deploy from branch, 
 ## Updating the work map
 
 Locations are maintained in the existing Google My Maps map ("Θεματικός Χάρτης Εργασιών").
-After editing it there, run `python3 tools/kml_to_json.py` and commit `assets/data/projects.json`.
+A GitHub Action (`.github/workflows/update-map.yml`) pulls it nightly at 02:17 UTC and commits
+`assets/data/projects.json` only when something changed, so edits appear on the site by the next morning.
+To update immediately: Actions → "Update work map" → Run workflow (or run `python3 tools/kml_to_json.py` locally).
+The script refuses to overwrite the data if the export is empty or loses more than half the points.
 Only points are published (no parcel polygons), rounded to ~10 m.
 
 ## Notes

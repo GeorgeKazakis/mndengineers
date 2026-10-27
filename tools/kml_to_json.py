@@ -43,6 +43,15 @@ def main():
             lng, lat = map(float, c.split(",")[:2])
             points.append([round(lat, 4), round(lng, 4), idx])
 
+    # Refuse to overwrite good data with an empty or badly truncated export
+    if not points:
+        sys.exit("No points found in KML; leaving existing data untouched.")
+    if OUT.exists():
+        previous = len(json.loads(OUT.read_text(encoding="utf-8"))["points"])
+        if len(points) < previous * 0.5:
+            sys.exit(f"Point count fell from {previous} to {len(points)}; refusing to overwrite. "
+                     "Delete assets/data/projects.json and re-run if this is intended.")
+
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(
         json.dumps({"categories": categories, "points": points}, ensure_ascii=False, separators=(",", ":")),
