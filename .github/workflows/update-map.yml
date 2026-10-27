@@ -38,8 +38,3 @@ jobs:
           git add assets/data/projects.json
           git commit -m "Update work map data from Google My Maps"
           git push origin HEAD:main
-          # Keep gh-pages in step while GitHub Pages still publishes from it.
-          # Remove this once Pages is switched to main and gh-pages is deleted.
-          if git ls-remote --exit-code --heads origin gh-pages >/dev/null; then
-            git push origin HEAD:gh-pages || echo "::warning::gh-pages could not be fast-forwarded"
-          fi
