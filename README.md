@@ -3,9 +3,9 @@
 Static redesign of https://mndengineers.wixsite.com/mndengineers (Greek, single page).
 
 ```
-index.html          page (services, work gallery, process, contact)
+index.html          page (services, work gallery, work map, process, contact)
 assets/styles.css   styles, no framework
-assets/main.js      mobile menu, lightbox, scroll reveal, mailto enquiry form
+assets/main.js      mobile menu, lightbox, scroll reveal
 assets/map.js       work map (Leaflet + OpenStreetMap, clustered, category filters)
 assets/data/        projects.json — work-map points, generated from Google My Maps
 tools/kml_to_json.py  regenerates projects.json from the Google My Maps map
@@ -31,7 +31,3 @@ A GitHub Action (`.github/workflows/update-map.yml`) pulls it nightly at 02:17 U
 To update immediately: Actions → "Update work map" → Run workflow (or run `python3 tools/kml_to_json.py` locally).
 The script refuses to overwrite the data if the export is empty or loses more than half the points.
 Only points are published (no parcel polygons), rounded to ~10 m.
-
-## Notes
-
-- The enquiry form opens the visitor's email client (`mailto:`) addressed to both engineers. To receive submissions directly, point the form at a service such as Formspree or Netlify Forms.
