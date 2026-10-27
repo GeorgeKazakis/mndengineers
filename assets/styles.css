@@ -196,7 +196,7 @@ h1, h2, h3 { line-height: 1.15; margin: 0; letter-spacing: -.02em; }
 }
 @media (max-width: 720px) {
   .banner { min-height: 420px; }
-  .banner__img { object-position: 72% 50%; }
+  .banner__img { object-position: 15% 50%; }
   .wrap { padding: 0 16px; }
   .section { padding: 72px 0; }
   .nav__toggle {
