@@ -14,6 +14,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap&subset=greek" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.min.css">
   <link rel="stylesheet" href="assets/styles.css">
   <script type="application/ld+json">
   {
@@ -47,6 +49,7 @@
       <nav id="nav-menu" class="nav__menu">
         <a href="#services">Υπηρεσίες</a>
         <a href="#work">Έργα</a>
+        <a href="#map">Χάρτης</a>
         <a href="#process">Διαδικασία</a>
         <a href="#contact" class="btn btn--sm">Επικοινωνία</a>
       </nav>
@@ -67,9 +70,9 @@
             <a href="#services" class="btn btn--ghost">Δείτε τις υπηρεσίες</a>
           </div>
           <dl class="hero__facts">
-            <div><dt>7</dt><dd>Κατηγορίες υπηρεσιών</dd></div>
+            <div><dt>600+</dt><dd>Εργασίες στον χάρτη</dd></div>
+            <div><dt>200+</dt><dd>Ενεργειακά πιστοποιητικά</dd></div>
             <div><dt>2</dt><dd>Μηχανικοί ΕΜΠ</dd></div>
-            <div><dt>Ν.4495</dt><dd>Τακτοποιήσεις αυθαιρέτων</dd></div>
           </dl>
         </div>
         <figure class="hero__visual">
@@ -208,11 +211,26 @@
       </div>
     </section>
 
+    <!-- MAP -->
+    <section class="section section--map" id="map">
+      <div class="wrap">
+        <header class="section__head">
+          <p class="eyebrow mono">03 — Θεματικός χάρτης εργασιών</p>
+          <h2><span data-total>600+</span> εργασίες, χαρτογραφημένες.</h2>
+          <p class="section__sub">Κάθε σημείο είναι μια εργασία μας. Επιλέξτε κατηγορίες για φιλτράρισμα.</p>
+        </header>
+        <div class="mapbox">
+          <div class="map-filters" role="group" aria-label="Κατηγορίες εργασιών"></div>
+          <div id="work-map" class="map" role="region" aria-label="Χάρτης εργασιών"></div>
+        </div>
+      </div>
+    </section>
+
     <!-- PROCESS -->
     <section class="section" id="process">
       <div class="wrap">
         <header class="section__head">
-          <p class="eyebrow mono">03 — Πώς δουλεύουμε</p>
+          <p class="eyebrow mono">04 — Πώς δουλεύουμε</p>
           <h2>Τέσσερα βήματα, ένας υπεύθυνος.</h2>
         </header>
         <ol class="steps">
@@ -228,7 +246,7 @@
     <section class="section section--dark" id="contact">
       <div class="wrap">
         <header class="section__head">
-          <p class="eyebrow mono">04 — Επικοινωνία</p>
+          <p class="eyebrow mono">05 — Επικοινωνία</p>
           <h2>Μιλήστε απευθείας με τον μηχανικό.</h2>
         </header>
 
@@ -298,6 +316,9 @@
     <p class="lightbox__cap mono"></p>
   </dialog>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.min.js" defer></script>
   <script src="assets/main.js" defer></script>
+  <script src="assets/map.js" defer></script>
 </body>
 </html>
