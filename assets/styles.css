@@ -83,17 +83,11 @@ h1, h2, h3 { line-height: 1.15; margin: 0; letter-spacing: -.02em; }
   filter: brightness(.85);   /* neutral, slight dim so the white title stands out */
 }
 .banner__inner { position: relative; z-index: 2; height: 100%; display: flex; align-items: center; padding-top: 68px; }
-.banner__copy { --shadow-txt: 0 1px 2px rgb(0 0 0 / .45), 0 2px 18px rgb(0 0 0 / .55), 0 0 48px rgb(0 0 0 / .35); }
-.banner__title {
-  font-size: clamp(32px, 4.8vw, 66px); font-weight: 800; color: #fff; letter-spacing: -.025em; line-height: 1.1;
-  text-shadow: var(--shadow-txt);
+.banner__title, .banner__tagline {
+  font: 800 clamp(28px, 3.4vw, 52px)/1.15 var(--font); color: #fff; letter-spacing: -.02em;
+  text-shadow: 0 1px 2px rgb(0 0 0 / .45), 0 2px 18px rgb(0 0 0 / .55), 0 0 48px rgb(0 0 0 / .35);
 }
-.banner__tagline {
-  display: flex; flex-wrap: wrap; align-items: center; gap: 0 .7em; margin: 22px 0 0; padding-left: 16px;
-  border-left: 3px solid var(--accent);
-  font: 700 clamp(13px, 1.4vw, 18px)/1.6 var(--font); letter-spacing: .14em; text-transform: uppercase;
-  color: #fff; text-shadow: var(--shadow-txt);
-}
+.banner__tagline { display: flex; flex-wrap: wrap; gap: 0 .35em; margin: 0; }
 .banner__tagline i { font-style: normal; color: var(--accent); }
 
 /* Sections */
