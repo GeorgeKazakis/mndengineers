@@ -80,13 +80,13 @@ h1, h2, h3 { line-height: 1.15; margin: 0; letter-spacing: -.02em; }
 .banner { position: relative; height: calc(100svh - 68px); min-height: 420px; overflow: hidden; background: var(--ink); }
 .banner__img {
   position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%;
-  filter: blur(2px) saturate(.9); transform: scale(1.04);   /* scale hides the blurred edges */
+  filter: blur(.8px); transform: scale(1.02);   /* scale hides the blurred edges */
 }
 .banner::before {
   content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
   background:
-    linear-gradient(90deg, rgb(15 30 46 / .78) 0%, rgb(15 30 46 / .5) 45%, rgb(15 30 46 / .25) 100%),
-    linear-gradient(0deg, rgb(15 30 46 / .35), rgb(15 30 46 / 0) 40%);
+    linear-gradient(90deg, rgb(15 30 46 / .7) 0%, rgb(15 30 46 / .38) 45%, rgb(15 30 46 / .12) 100%),
+    linear-gradient(0deg, rgb(15 30 46 / .25), rgb(15 30 46 / 0) 40%);
 }
 .banner__inner { position: relative; z-index: 2; height: 100%; display: flex; align-items: center; }
 .banner__title {
