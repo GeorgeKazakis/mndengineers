@@ -1,6 +1,6 @@
 # M&D Engineers — website
 
-The first live version (before client revisions) is kept on branch `v1`.
+The first live version (before client revisions) is kept on branch `v1` and served read-only at `/v1/` (noindex, map data frozen).
 
 Static redesign of https://mndengineers.wixsite.com/mndengineers (Greek, single page).
 
