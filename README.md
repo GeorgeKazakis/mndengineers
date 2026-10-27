@@ -17,6 +17,10 @@ No build step. Preview locally with `python3 -m http.server` and open http://loc
 
 ## Deploy
 
+Live at https://mndengineers.gr (GitHub Pages from `main`; `CNAME` holds the domain).
+DNS at Papaki: four A records for `@` → 185.199.108–111.153, AAAA records → 2606:50c0:8000–8003::153,
+and `www` CNAME → georgekazakis.github.io.
+
 Any static host works: GitHub Pages (Settings → Pages → deploy from branch, root), Netlify or Vercel (drag-and-drop the folder / import the repo, no build command).
 
 ## Updating the work map
@@ -31,4 +35,3 @@ Only points are published (no parcel polygons), rounded to ~10 m.
 ## Notes
 
 - The enquiry form opens the visitor's email client (`mailto:`) addressed to both engineers. To receive submissions directly, point the form at a service such as Formspree or Netlify Forms.
-- Update `og:image` to an absolute URL once a domain is set.
