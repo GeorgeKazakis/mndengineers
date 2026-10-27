@@ -68,7 +68,6 @@ h1, h2, h3 { line-height: 1.15; margin: 0; letter-spacing: -.02em; }
 .nav__menu a:not(.btn):hover { color: var(--ink); }
 .nav__toggle { display: none; }
 
-.eyebrow { font-size: 13px; color: var(--accent); text-transform: uppercase; margin: 0 0 10px; }
 
 .zoom {
   display: block; width: 100%; padding: 0; border: 0; background: #fff; cursor: zoom-in;
