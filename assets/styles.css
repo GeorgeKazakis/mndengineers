@@ -76,15 +76,23 @@ h1, h2, h3 { line-height: 1.15; margin: 0; letter-spacing: -.02em; }
 .zoom img { transition: transform .4s ease; }
 .zoom:hover img { transform: scale(1.03); }
 
-/* Banner */
-.banner { position: relative; height: clamp(320px, 62vh, 640px); overflow: hidden; background: var(--paper-2); }
-.banner__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% 50%; }
+/* Banner: full-height, toned-down photo with white title */
+.banner { position: relative; height: calc(100svh - 68px); min-height: 420px; overflow: hidden; background: var(--ink); }
+.banner__img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%;
+  filter: blur(2px) saturate(.9); transform: scale(1.04);   /* scale hides the blurred edges */
+}
 .banner::before {
   content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
-  background: linear-gradient(180deg, rgb(246 244 239 / .85) 0%, rgb(246 244 239 / .45) 22%, rgb(246 244 239 / 0) 42%);
+  background:
+    linear-gradient(90deg, rgb(15 30 46 / .78) 0%, rgb(15 30 46 / .5) 45%, rgb(15 30 46 / .25) 100%),
+    linear-gradient(0deg, rgb(15 30 46 / .35), rgb(15 30 46 / 0) 40%);
 }
-.banner__inner { position: relative; z-index: 2; height: 100%; display: flex; align-items: flex-start; padding-top: clamp(24px, 5vh, 48px); }
-.banner__title { font-size: clamp(34px, 5.2vw, 64px); font-weight: 800; color: var(--ink); letter-spacing: -.03em; }
+.banner__inner { position: relative; z-index: 2; height: 100%; display: flex; align-items: center; }
+.banner__title {
+  font-size: clamp(40px, 6.4vw, 84px); font-weight: 800; color: #fff; letter-spacing: -.03em;
+  max-width: 8em; text-shadow: 0 2px 24px rgb(0 0 0 / .25);
+}
 
 /* Sections */
 .section { padding: 104px 0; }
@@ -188,9 +196,8 @@ h1, h2, h3 { line-height: 1.15; margin: 0; letter-spacing: -.02em; }
   .team { grid-template-columns: 1fr; }
 }
 @media (max-width: 720px) {
-  .banner { height: auto; aspect-ratio: 16 / 10; }
-  .banner::before { background: linear-gradient(180deg, rgb(246 244 239 / .9) 0%, rgb(246 244 239 / 0) 55%); }
-  .banner__inner { padding-top: 20px; }
+  .banner { height: calc(100svh - 68px); min-height: 360px; }
+  .banner__img { object-position: 72% 50%; }
   .wrap { padding: 0 16px; }
   .section { padding: 72px 0; }
   .nav__toggle {
