@@ -1,9 +1,11 @@
 # M&D Engineers — website
 
+The first live version (before client revisions) is kept on branch `v1`.
+
 Static redesign of https://mndengineers.wixsite.com/mndengineers (Greek, single page).
 
 ```
-index.html          page (services, work gallery, work map, process, contact)
+index.html          page (services, work gallery, work map, contact)
 assets/styles.css   styles, no framework
 assets/main.js      mobile menu, lightbox, scroll reveal
 assets/map.js       work map (Leaflet + OpenStreetMap, clustered, category filters)
@@ -30,4 +32,4 @@ A GitHub Action (`.github/workflows/update-map.yml`) pulls it nightly at 02:17 U
 `assets/data/projects.json` only when something changed, so edits appear on the site by the next morning.
 To update immediately: Actions → "Update work map" → Run workflow (or run `python3 tools/kml_to_json.py` locally).
 The script refuses to overwrite the data if the export is empty or loses more than half the points.
-Only points are published (no parcel polygons), rounded to ~10 m.
+Points, parcel outlines and layer colours all come from that map; outlines appear from zoom 15.

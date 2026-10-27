@@ -31,7 +31,7 @@
   box.addEventListener('click', (e) => { if (e.target === box) box.close(); });
 
   // Reveal on scroll
-  const targets = document.querySelectorAll('.card, .shot, .steps li, .person');
+  const targets = document.querySelectorAll('.card, .shot, .person');
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver((entries) => {
       entries.forEach((en) => {
